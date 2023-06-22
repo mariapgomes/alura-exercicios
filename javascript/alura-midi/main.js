@@ -1,3 +1,4 @@
+// Da play no som ao clicar nos botoẽs
 const teclas = document.querySelectorAll('.tecla');
 
 function btnReproduzir (event) {
