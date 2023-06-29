@@ -47,6 +47,10 @@ input[type=button] {
   width: 80px;
 }
 
+input[type=button]:hover {
+  background-color: yellow;
+}
+
 input[type=tel] {
   background-color: #cccccc;
   border-radius: 10px;
