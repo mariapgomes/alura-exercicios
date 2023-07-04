@@ -14,6 +14,7 @@ function criaElemento(item) {
   novoItem.appendChild(numeroItem);
   novoItem.innerHTML += item.nome;
 
+  novoItem.appendChild(bntDeletar())
   lista.appendChild(novoItem);
 }
 
@@ -25,6 +26,21 @@ function atualizaElemento(item) {
   const idDoItem = document.querySelector('[data-id="'+item.id+'"]');
   idDoItem.innerText = item.quantidade;
 
+}
+
+function bntDeletar() {
+  const btn = document.createElement('button');
+  btn.innerText = 'X';
+  
+  btn.addEventListener('click', function() { //Foi necessário declarar a função dessa forma porque com a () => não funciona o this.
+    detelaItem(this.parentNode);
+  });
+
+  return btn;
+}
+
+function detelaItem(item) {
+  item.remove();
 }
 
 form.addEventListener('submit', (event) => {
