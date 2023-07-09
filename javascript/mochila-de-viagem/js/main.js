@@ -14,7 +14,7 @@ function criaElemento(item) {
   novoItem.appendChild(numeroItem);
   novoItem.innerHTML += item.nome;
 
-  novoItem.appendChild(bntDeletar())
+  novoItem.appendChild(bntDeletar(item.id))
   lista.appendChild(novoItem);
 }
 
@@ -28,19 +28,23 @@ function atualizaElemento(item) {
 
 }
 
-function bntDeletar() {
+function bntDeletar(id) {
   const btn = document.createElement('button');
   btn.innerText = 'X';
   
   btn.addEventListener('click', function() { //Foi necessário declarar a função dessa forma porque com a () => não funciona o this.
-    detelaItem(this.parentNode);
+    detelaItem(this.parentNode, id);
   });
 
   return btn;
 }
 
-function detelaItem(item) {
+function detelaItem(item, id) {
   item.remove();
+
+  itens.splice(itens.findIndex((elemento) => elemento.id === id), 1)
+
+  localStorage.setItem('itens', JSON.stringify(itens));
 }
 
 form.addEventListener('submit', (event) => {
@@ -57,8 +61,9 @@ form.addEventListener('submit', (event) => {
   if(existe) {
     itemAtual.id = existe.id;
     atualizaElemento(itemAtual);
+    itens[itens.findIndex((elemento) => elemento.id === existe.id)]= itemAtual;
   } else {
-    itemAtual.id = itens.length
+    itemAtual.id = itens[itens.length - 1] ? (itens[itens.length - 1]).id +1 : 0;
     criaElemento(itemAtual);
     itens.push(itemAtual);
   }
