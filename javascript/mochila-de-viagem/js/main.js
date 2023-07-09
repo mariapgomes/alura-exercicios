@@ -25,14 +25,13 @@ itens.forEach((elemento) => {
 function atualizaElemento(item) {
   const idDoItem = document.querySelector('[data-id="'+item.id+'"]');
   idDoItem.innerText = item.quantidade;
-
 }
 
 function bntDeletar(id) {
   const btn = document.createElement('button');
   btn.innerText = 'X';
   
-  btn.addEventListener('click', function() { //Foi necessário declarar a função dessa forma porque com a () => não funciona o this.
+  btn.addEventListener('click', function() {
     detelaItem(this.parentNode, id);
   });
 
@@ -52,7 +51,7 @@ form.addEventListener('submit', (event) => {
 
   const nome = event.target.elements['nome'];
   const quantidade = event.target.elements['quantidade'];
-  const existe = itens.find((elemento) => elemento.nome === nome.value);//array.find(parâmetro), verifica se a condição dentro dele existe no array definido.
+  const existe = itens.find((elemento) => elemento.nome === nome.value);
   const itemAtual = {
     nome: nome.value,
     quantidade: quantidade.value
@@ -63,12 +62,12 @@ form.addEventListener('submit', (event) => {
     atualizaElemento(itemAtual);
     itens[itens.findIndex((elemento) => elemento.id === existe.id)]= itemAtual;
   } else {
-    itemAtual.id = itens[itens.length - 1] ? (itens[itens.length - 1]).id +1 : 0;
+    itemAtual.id = itens[itens.length - 1] ? (itens[itens.length - 1]).id + 1 : 0;
     criaElemento(itemAtual);
     itens.push(itemAtual);
   }
 
-  localStorage.setItem('itens', JSON.stringify(itens)); //JSON.stringify(itens) transforma um objeto em uma string.
+  localStorage.setItem('itens', JSON.stringify(itens));
 
   nome.value = '';
   quantidade.value = '';
