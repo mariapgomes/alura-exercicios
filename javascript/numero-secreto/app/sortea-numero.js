@@ -4,7 +4,7 @@ const maiorValor = 500;
 const numeroSecreto = geradorNumeroAleatorio();
 
 function geradorNumeroAleatorio() {
-  return Math.floor(Math.random() * maiorValor + 1);
+  return Math.floor(Math.random() * (maiorValor - menorValor + 1)) + menorValor;
 }
 
 console.log(numeroSecreto);
