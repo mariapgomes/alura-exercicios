@@ -1,9 +1,19 @@
 function verificaChute(chute) {
   const numero = +chute;
-
-  if(chuteInvalido(numero)) {
+  const inteiroOuNao = numero !== Math.floor(numero)
+  
+  if (chute === "game over") {
+    document.body.classList.add('gameOver');
+    
+  } else if (chute === "jogar novamente") {
+    window.location.reload();
+    
+  } else if (chuteInvalido(numero)) {
     elementoChute.innerHTML += '<div>Valor Inválido</div>';
     return //Esse return impede que a função continue a ser retornada
+
+  } else if (inteiroOuNao) {
+    elementoChute.innerHTML += '<div>Fale um número inteiro</div>';
   }
 
   if (chuteForaPermitido(numero)) {
@@ -22,7 +32,7 @@ function verificaChute(chute) {
     elementoChute.innerHTML += `
       <div>O número secreto é menor <i class="fa-solid fa-down-long"></i></div>
     `
-  } else {
+  } else if (numero < numeroSecreto){
     elementoChute.innerHTML += `
       <div>O número secreto é maior <i class="fa-solid fa-up-long"></i></div>
     `
@@ -39,6 +49,6 @@ function chuteForaPermitido(numero) {
 
 document.body.addEventListener('click', (event) => {
   if (event.target.id === 'jogar-novamente') {
-    window.location.reload()
+    window.location.reload();
   }
 })

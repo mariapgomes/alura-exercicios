@@ -15,10 +15,19 @@ function onSpeak(event) {
 }
 
 function exibeChuteNaTela(chute) {
-  elementoChute.innerHTML = `
-    <div>Você disse:</div>
-    <span class="box">${chute}</span>
-  `
+  if (chute === "game over") {
+    let chute = "GAME OVER"
+    elementoChute.innerHTML = `
+      <div>Você disse:</div>
+      <span class="box">${chute}</span>
+    `
+  } else if (+chute) {
+    elementoChute.innerHTML = `
+      <div>Você disse:</div>
+      <span class="box">${chute}</span>
+    `
+  }
+
 }
 
 recognition.addEventListener('end', () => recognition.start());
