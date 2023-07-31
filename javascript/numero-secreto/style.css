@@ -32,6 +32,10 @@ h3 {
     margin-top: 20px;
 }
 
+p, div, h3, h2 {
+    font-weight: 700;
+}
+
 .mensagem {
     font-size: 1.5em;
     margin-top: 40px;
