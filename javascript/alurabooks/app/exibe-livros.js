@@ -8,6 +8,7 @@ async function getBuscarLivrosDaAPI() {
 };
 
 function exibeLivros(listaDeLivros) {
+  sectionLivros.innerHTML = '';
   listaDeLivros.forEach(livro => {
     sectionLivros.innerHTML += `
     <div class="livro">
