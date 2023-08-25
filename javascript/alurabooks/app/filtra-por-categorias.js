@@ -14,14 +14,15 @@ function filtraLivros(event) {
   exibeLivros(livrosFiltrados);
 
   if(disponivel) {
-    exibeValorTotal()
+    const valorTotal = calculaTotal(livrosFiltrados);
+    exibeValorTotal(valorTotal);
   }
 }
 
-function exibeValorTotal() {
-  valorTotal.innerHTML = `
+function exibeValorTotal(valorTotal) {
+  sectionValorTotal.innerHTML = `
   <div class="livros__disponiveis">
-    <p>Todos os livros disponíveis por R$ <span id="valor">299,00</span></p>
+    <p>Todos os livros disponíveis por R$ <span id="valor">${valorTotal}</span></p>
   </div>
   `
 }
