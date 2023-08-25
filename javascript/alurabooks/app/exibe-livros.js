@@ -9,10 +9,13 @@ async function getBuscarLivrosDaAPI() {
 
 function exibeLivros(listaDeLivros) {
   sectionLivros.innerHTML = '';
+
   listaDeLivros.forEach(livro => {
+    const disponibilidade = livro.quantidade > 0 ? 'livros__imagens' : 'livros__imagens indisponivel';
+    
     sectionLivros.innerHTML += `
     <div class="livro">
-      <img class="livro__imagens" src="${livro.imagem}"
+      <img class="${disponibilidade}" src="${livro.imagem}"
         alt="${livro.alt}" />
       <h2 class="livro__titulo">
         ${livro.titulo}
