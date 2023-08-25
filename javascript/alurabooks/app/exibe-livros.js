@@ -1,5 +1,9 @@
+const valorTotal = document.querySelector('#valor_total_livros_disponiveis');
+
 function exibeLivros(listaDeLivros) {
+  const sectionLivros = document.querySelector('#livros');
   sectionLivros.innerHTML = '';
+  valorTotal.innerHTML = '';
 
   listaDeLivros.forEach(livro => {
     const disponibilidade = livro.quantidade > 0 ? 'livros__imagens' : 'livros__imagens indisponivel';
