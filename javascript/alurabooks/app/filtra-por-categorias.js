@@ -6,6 +6,6 @@ botoes.forEach(btn => {
 
 function filtraLivros(event) {
   const valueBtn = event.target.value
-  const livrosFiltrados = livros.filter(livro => livro.categoria === valueBtn);
+  const livrosFiltrados = valueBtn === 'disponivel' ? livros.filter(livro => livro.quantidade > 0) : livros.filter(livro => livro.categoria === valueBtn);
   exibeLivros(livrosFiltrados);
 }
