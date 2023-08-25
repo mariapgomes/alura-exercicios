@@ -1,18 +1,9 @@
-const sectionLivros = document.querySelector('#livros');
-
-async function getBuscarLivrosDaAPI() {
-  const resposta = await fetch(endpointDaAPI);
-  livros = await resposta.json();
-  const livrosComDesconto = aplicaDesconto(livros)
-  exibeLivros(livrosComDesconto);
-};
-
 function exibeLivros(listaDeLivros) {
   sectionLivros.innerHTML = '';
 
   listaDeLivros.forEach(livro => {
     const disponibilidade = livro.quantidade > 0 ? 'livros__imagens' : 'livros__imagens indisponivel';
-    
+
     sectionLivros.innerHTML += `
     <div class="livro">
       <img class="${disponibilidade}" src="${livro.imagem}"
