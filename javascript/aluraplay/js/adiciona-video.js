@@ -1,4 +1,4 @@
-import { adicionaVideo } from "./conecta-api.js";
+import { conectaApi } from "./conecta-api.js";
 const form = document.querySelector('[data-formulario]');
 
 async function formAdicionaVideo(event) {
@@ -8,7 +8,7 @@ async function formAdicionaVideo(event) {
         titulo = document.querySelector('[data-titulo').value,
         descricao = Math.floor(Math.random() * 10).toString();
   
-  await adicionaVideo(titulo, descricao, url, imagem);
+  await conectaApi.adicionaVideo(titulo, descricao, url, imagem);
   window.location.href = '../pages/envio-concluido.html';
 }
 
