@@ -1,5 +1,23 @@
-export default async function listaVideos() {
+export async function listaVideos() {
   const conexao = await fetch ('http://localhost:3000/videos');
+  const conexaoConvertida = await conexao.json();
+  return conexaoConvertida;
+};
+
+export async function adicionaVideo(titulo, descricao, url, imagem) {
+  const conexao = await fetch('http://localhost:3000/videos', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      titulo: titulo,
+      descricao: `${descricao} mil visualizações`,
+      url: url,
+      imagem: imagem
+    })
+  });
+
   const conexaoConvertida = await conexao.json();
   return conexaoConvertida;
 }

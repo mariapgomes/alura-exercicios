@@ -83,6 +83,20 @@
       "url": "https://www.youtube.com/embed/IGFSiBJIXFQ",
       "imagem": "https://purr.objects-us-east-1.dream.io/i/OoNx6.jpg",
       "id": 12
+    },
+    {
+      "titulo": "Curso de Ciência da Computação | #HipstersPontoTube",
+      "descricao": "4 mil visualizações",
+      "url": "https://www.youtube.com/embed/Kkg1cjVoYq4",
+      "imagem": "https://purr.objects-us-east-1.dream.io/i/OoNx6.jpg",
+      "id": 13
+    },
+    {
+      "titulo": "Conheça o canal da Alura!",
+      "descricao": "9 mil visualizações",
+      "url": "https://www.youtube.com/embed/94yuIVdoevc",
+      "imagem": "https://github.com/MonicaHillman/aluraplay-requisicoes/blob/main/img/logo.png?raw=true",
+      "id": 14
     }
   ]
 }

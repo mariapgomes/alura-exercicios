@@ -1,4 +1,4 @@
-import listaVideos from "./conecta-api.js";
+import { listaVideos } from "./conecta-api.js";
 
 const lista = document.querySelector('[data-lista]');
 
@@ -19,11 +19,11 @@ function constroiCard(video) {
   return lista;
 }
 
-async function listaVideo() {
+async function mostraVideo() {
   const listaApi = await listaVideos();
   listaApi.forEach(video => {
-    constroiCard(video)
+    constroiCard(video);
   });
 }
 
-listaVideo();
+mostraVideo();
