@@ -1,0 +1,14 @@
+{
+  "name": "alura-exercicios",
+  "version": "1.0.0",
+  "description": "Neste repositório, você encontrará uma coleção dos exercícios mais recentes que realizei nos cursos oferecidos pela plataforma Alura. Os exercícios abrangem uma variedade de tópicos, o que me proporcionou uma oportunidade de praticar e aprimorar minhas habilidades em programação.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.3"
+  }
+}
