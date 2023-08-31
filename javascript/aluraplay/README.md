@@ -1,4 +1,4 @@
-# AluraBooks
+# AluraPlay
 
 É um site fictício de vídeos da alura, que faz o consumo de uma API simulada como base de seu conteúdo.
 ## Screenshots
