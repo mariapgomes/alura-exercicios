@@ -7,9 +7,12 @@ async function formAdicionaVideo(event) {
         url = document.querySelector('[data-url').value,
         titulo = document.querySelector('[data-titulo').value,
         descricao = Math.floor(Math.random() * 10).toString();
-  
-  await conectaApi.adicionaVideo(titulo, descricao, url, imagem);
-  window.location.href = '../pages/envio-concluido.html';
+  try {
+    await conectaApi.adicionaVideo(titulo, descricao, url, imagem);
+    window.location.href = '../pages/envio-concluido.html';
+  } catch {
+    alert('Não foi possível enviar o vídeo.');
+  }
 }
 
 form.addEventListener('submit', event => formAdicionaVideo(event));
