@@ -15,6 +15,7 @@ function atualizaTamanhoFrase() {
     var tamanhoFrase = $("#tamanho-frase");
 
     tamanhoFrase.text(numPalavras);
+    $('#spinner').hide();
 }
 
 function atualizaTempoInicial(tempo) {
