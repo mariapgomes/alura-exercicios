@@ -3,13 +3,13 @@ $("#botao-sync").click(sincronizaPlacar);
 
 function inserePlacar() {
     var corpoTabela = $(".placar").find("tbody");
-    var usuario = "Usuário Padrão"
+    var usuario = "Maria"
     var numPalavras = $("#contador-palavras").text();
 
     var linha = novaLinha(usuario, numPalavras);
     linha.find(".botao-remover").click(removeLinha);
 
-    corpoTabela.append(linha);
+    corpoTabela.preppend(linha);
     $(".placar").slideDown(500);
     scrollPlacar();
 }
@@ -42,7 +42,7 @@ function novaLinha(usuario, palavras) {
     return linha;
 }
 
-function removeLinha() {
+function removeLinha(event) {
     event.preventDefault();
     var linha = $(this).parent().parent();
 
@@ -77,6 +77,7 @@ function atualizaPlacar() {
     $.get('http://localhost:3000/placar', function(dados) {
         $(dados).each(function() {
             const linha = novaLinha(this.usuario, this.pontos);
+            linha.find(".botao-remover").click(removeLinha);
             $('tbody').append(linha);
         })
     })
