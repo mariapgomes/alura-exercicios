@@ -1,9 +1,9 @@
-# AluraPlay
+# AluraTyper
 
 É um jogo onde é possível medir a velocidade que o jogador digita uma frase.
 
 ## Screenshots
-![Tela inicial do AluraPlay](./public/img/tela-inicial.png)
+![Tela inicial do AluraTyper](./public/img/tela-inicial.png)
 
 ## Objetivo
 
