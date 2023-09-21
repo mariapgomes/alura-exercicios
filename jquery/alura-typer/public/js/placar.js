@@ -9,7 +9,7 @@ function inserePlacar() {
     var linha = novaLinha(usuario, numPalavras);
     linha.find(".botao-remover").click(removeLinha);
 
-    corpoTabela.preppend(linha);
+    corpoTabela.append(linha);
     $(".placar").slideDown(500);
     scrollPlacar();
 }
@@ -68,8 +68,14 @@ function sincronizaPlacar() {
 
     let dados = {placar: placar}
     $.post('http://localhost:3000/placar', dados, function() {
-        console.log('Dados Salvos');
-    })
+        $('.tooltip').tooltipster('open').tooltipster('content', 'Sucesso ao sincronizar!');
+    }).fail(function() {
+        $('.tooltip').tooltipster('open').tooltipster('content', 'Falha ao sincronizar!');
+    }).always(function() {
+        setTimeout(function() {
+            $('.tooltip').tooltipster('close');
+        }, 1200);
+    });
 }
 
 function atualizaPlacar() {
